@@ -1,0 +1,240 @@
+/* General body styling */
+        html, body {
+          overflow-x: hidden;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+          display: none;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            /* Center the brand on mobile */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Adjust brand position on larger screens when menu is visible */
+        @media (min-width: 992px) {
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin-right: auto; /* Push other items away */
+            }
+            .navbar-nav {
+                margin: auto;
+            }
+        }
+        
+        .cart-icon {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* --- Hero Slideshow Styling --- */
+        #heroCarousel {
+            position: relative;
+        }
+
+        #heroCarousel .carousel-item {
+            height: 100vh;
+            min-height: 500px;
+        }
+        
+        /* Add a dark overlay for better text readability */
+        #heroCarousel .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        #heroCarousel .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* --- Hero Overlay Content Styling --- */
+        .hero-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end; /* Aligns content to the bottom */
+            justify-content: center;
+            z-index: 10;
+            padding-bottom: 5rem; /* Adds spacing from the bottom */
+        }
+        
+        .hero-caption h2 {
+            font-size: 0.8rem; /* Reduced size */
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 0; /* Adjusted margin */
+            text-transform: uppercase;
+        }
+
+        .btn-outline-light {
+            padding: 0.2rem 0.7rem;
+            border-radius: 50px; /* Rounded buttons */
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            color: #000;
+            background-color: #fff;
+        }
+
+
+        /* General body styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            /* Center the brand on mobile */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Adjust brand position on larger screens when menu is visible */
+        @media (min-width: 992px) {
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin-right: auto; /* Push other items away */
+            }
+            .navbar-nav {
+                margin: auto;
+            }
+        }
+        
+        .cart-icon {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* --- Shop Section Styling --- */
+        .shop-section {
+            background-color: #fff;
+            padding-top: 100px; /* Add padding to push content below fixed navbar */
+        }
+        
+        .shop-section h2 {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            opacity: 0; /* Initially hidden for animation */
+            transform: translateY(30px); /* Start slightly lower for animation */
+        }
+        
+        .product-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-card .product-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.25rem 1rem;
+        }
+
+        .product-info h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0;
+        }
