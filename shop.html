@@ -1,185 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - ÉLYSIAN</title>
-     
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop - ÉLYSIAN</title>
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- External shop CSS (created for you) -->
+  <link href="assets/css/shop.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <!-- Mobile: Hamburger Menu Icon -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2"></i>
-            </button>
-            
-            <!-- Business Name (Centered) -->
-            <a class="navbar-brand" href="index.html">ÉLYSIAN</a>
-            
-            <!-- Mobile & Desktop: Cart Icon (on the right) -->
-            <a href="#" class="cart-icon ms-auto ms-lg-0">
-                <i class="bi bi-bag"></i>
-            </a>
+  <!-- NAVBAR (kept as requested) -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list"></i>
+      </button>
 
-            <!-- Collapsible Menu for Desktop -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Collections</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+      <a class="navbar-brand mx-auto" href="index.html">ÉLYSIAN</a>
+
+      <a href="#" class="cart-icon position-relative">
+        <i class="bi bi-bag"></i>
+        <span class="cart-count badge rounded-pill bg-warning text-dark">0</span>
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ALL PRODUCTS (no filters) -->
+  <main class="shop-section">
+    <div class="container">
+      <h2 class="section-title text-center">All Products</h2>
+
+      <div class="row g-4 mt-3" id="product-grid">
+        <!-- Example product card: update image src to your own images in assets/img/ -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <!-- change this src to your image path -->
+              <img src="assets/img/image1.jpeg" alt="Linen Shirt" class="product-image">
+              <!-- cart icon top-right for each product -->
+              <button class="product-cart-btn" data-name="Linen Shirt" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
             </div>
-        </div>
-    </nav>
 
-    <!-- Shop Section -->
-    <main class="shop-section py-5">
-        <div class="container">
-            <h2 class="text-center mt-5 mb-5 display-5">Our Collection</h2>
-            <div class="row g-4">
-                <!-- Product 1 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                           <img src="assets/img/image1.jpeg" class="img-fluid" alt="Linen Shirt">
-                        </div>
-                        <div class="product-info">
-                            <h5>Linen Shirt</h5>
-                            <p>$89.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image2.jpeg" class="img-fluid" alt="Denim Jacket">
-                        </div>
-                        <div class="product-info">
-                            <h5>Denim Jacket</h5>
-                            <p>$120.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                        <div class="product-image-container">
-                           <img src="assets/img/image1.jpeg" class="img-fluid" alt="Cotton Trousers">
-                        </div>
-                        <div class="product-info">
-                            <h5>Cotton Trousers</h5>
-                            <p>$95.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 4 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image2.jpeg" class="img-fluid" alt="Silk Blouse">
-                        </div>
-                        <div class="product-info">
-                            <h5>Silk Blouse</h5>
-                            <p>$110.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 5 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image1.jpeg" class="img-fluid" alt="Wool Sweater">
-                        </div>
-                        <div class="product-info">
-                            <h5>Wool Sweater</h5>
-                            <p>$150.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 6 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image2.jpeg" class="img-fluid" alt="Leather Skirt">
-                        </div>
-                        <div class="product-info">
-                            <h5>Leather Skirt</h5>
-                            <p>$135.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 7 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image1.jpeg" class="img-fluid" alt="Wool Sweater">
-                        </div>
-                        <div class="product-info">
-                            <h5>Wool Sweater</h5>
-                            <p>$150.00</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 8 -->
-                <div class="col-6 col-lg-4">
-                    <div class="product-card">
-                       <div class="product-image-container">
-                           <img src="assets/img/image2.jpeg" class="img-fluid" alt="Leather Skirt">
-                        </div>
-                        <div class="product-info">
-                            <h5>Leather Skirt</h5>
-                            <p>$135.00</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="product-info">
+              <h5>Linen Shirt</h5>
+              <p class="price">$89.00</p>
             </div>
+          </div>
         </div>
-    </main>
-    
-    <!-- A simple footer -->
-    <footer class="text-center py-4 bg-light">
-        <p class="mb-0">&copy; 2024 JAYSEMPIRE. All Rights Reserved.</p>
-    </footer>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- repeat for each product - update image paths accordingly -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="assets/img/image2.jpeg" alt="Denim Jacket" class="product-image">
+              <button class="product-cart-btn" data-name="Denim Jacket" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>Denim Jacket</h5>
+              <p class="price">$120.00</p>
+            </div>
+          </div>
+        </div>
 
-    <script src="assets/js/custom.js"></script>
+        <!-- product 3 -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="assets/img/image2.jpeg" alt="Cotton Trousers" class="product-image">
+              <button class="product-cart-btn" data-name="Cotton Trousers" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>Cotton Trousers</h5>
+              <p class="price">$95.00</p>
+            </div>
+          </div>
+        </div>
 
+        <!-- product 4 -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="assets/img/image1.jpeg" alt="Silk Blouse" class="product-image">
+              <button class="product-cart-btn" data-name="Silk Blouse" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>Silk Blouse</h5>
+              <p class="price">$110.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more products as needed (update image names) -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="assets/img/image1.jpeg" alt="Wool Sweater" class="product-image">
+              <button class="product-cart-btn" data-name="Wool Sweater" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>Wool Sweater</h5>
+              <p class="price">$150.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="assets/img/image2.jpeg" alt="Leather Skirt" class="product-image">
+              <button class="product-cart-btn" data-name="Leather Skirt" title="Add to cart">
+                <i class="bi bi-bag-fill"></i>
+              </button>
+              <div class="product-overlay">
+                <button class="quick-view-btn">Quick View</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>Leather Skirt</h5>
+              <p class="price">$135.00</p>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+  </main>
+
+  <!-- FOOTER (keeps your design) -->
+  <footer>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h4 class="navbar-brand mb-3">ÉLYSIAN</h4>
+          <p class="text-muted">Crafting timeless fashion for the modern individual.</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Shop</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-muted">All Products</a></li>
+            <li><a href="#" class="text-muted">New Arrivals</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Info</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-muted">About</a></li>
+            <li><a href="#" class="text-muted">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Newsletter</h5>
+          <form class="mt-2">
+            <div class="input-group">
+              <input class="form-control" type="email" placeholder="Your email">
+              <button class="btn btn-outline-dark" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 text-muted">&copy; 2024 ÉLYSIAN. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Minimal JS: quick view alert + add-to-cart counter that updates navbar cart count -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Quick view (placeholder)
+      document.querySelectorAll('.quick-view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          alert('Quick view: implement modal with product details here.');
+        });
+      });
+
+      // Add to cart buttons (product top-right)
+      const cartCountEl = document.querySelector('.cart-count');
+      let cartCount = 0;
+      document.querySelectorAll('.product-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          cartCount++;
+          cartCountEl.textContent = cartCount;
+          // small feedback animation
+          btn.style.transform = 'scale(.96)';
+          setTimeout(() => btn.style.transform = '', 120);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
