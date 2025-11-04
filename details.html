@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Chenche Lagos</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfbf7; /* Soft beige background */
+        }
+
+        /* --- Navbar Styling (consistent with other pages) --- */
+        .navbar {
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
+        .navbar-toggler { border: none; }
+        .navbar-toggler:focus { box-shadow: none; }
+        @media (min-width: 992px) {
+            .navbar-brand { position: static; transform: none; margin-right: auto; }
+            .navbar-nav { margin: auto; }
+        }
+        .cart-icon { font-size: 1.5rem; color: #333; }
+        
+        /* --- Product Details Section --- */
+        .product-section {
+            padding-top: 120px;
+            padding-bottom: 6rem;
+        }
+
+        .main-product-image {
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+        }
+
+        .thumbnail-slider {
+            margin-top: 1rem;
+        }
+        .thumbnail-img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            opacity: 0.7;
+        }
+        .thumbnail-img:hover, .thumbnail-img.active {
+            border-color: #333;
+            opacity: 1;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+        .product-tagline {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-top: -5px;
+            margin-bottom: 1.5rem;
+        }
+        .product-price {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .rating {
+            color: #ffc107;
+            margin-bottom: 1.5rem;
+        }
+        .rating span {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        
+        .form-label {
+            font-weight: 500;
+        }
+        .form-select {
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-add-to-cart {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background-color: #333;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .btn-add-to-cart:hover {
+            background-color: #000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .action-icons {
+            margin-top: 1.5rem;
+        }
+        .action-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .action-icons a i {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Collapsible Details Section */
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #eee;
+            background: transparent;
+        }
+        .accordion-button {
+            font-weight: 600;
+            background: transparent;
+            padding: 1.5rem 0;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #000;
+            background: transparent;
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        /* Sticky Add to Cart Bar on Mobile */
+        .mobile-cart-bar {
+            display: none; /* Hidden by default */
+        }
+        @media (max-width: 767.98px) {
+            .product-section {
+                padding-bottom: 120px; /* Space for the sticky bar */
+            }
+            .mobile-cart-bar {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 1rem;
+                border-top: 1px solid #eee;
+                box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+                z-index: 1000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">CHENCHE</a>
+            <a href="#" class="cart-icon ms-auto ms-lg-0">
+                <i class="bi bi-bag"></i>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="product-section">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Left Side: Product Images -->
+                <div class="col-md-7">
+                    <img src="assets/img/image1.jpeg" alt="Main product view" class="main-product-image" id="mainImage">
+                    <div class="row g-2 thumbnail-slider mt-3">
+                        <div class="col-3">
+                            <img src="assets/img/image1.jpeg" alt="Thumbnail 1" class="thumbnail-img active" onclick="changeImage(this.src)">
+                        </div>
+                        <div class="col-3">
+                            <img src="assets/img/image1.jpeg" alt="Thumbnail 2" class="thumbnail-img" onclick="changeImage(this.src)">
+                        </div>
+                        <div class="col-3">
+                            <img src="assets/img/image1.jpeg" alt="Thumbnail 3" class="thumbnail-img" onclick="changeImage(this.src)">
+                        </div>
+                        <div class="col-3">
+                            <img src="assets/img/image1.jpeg" alt="Thumbnail 4" class="thumbnail-img" onclick="changeImage(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Product Details -->
+                <div class="col-md-5">
+                    <h1 class="product-title">Flowy Maxi Dress</h1>
+                    <p class="product-tagline">Crafted from sustainable organic cotton.</p>
+                    <div class="product-price">$189.00</div>
+                    <div class="rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                        <span>(122 Reviews)</span>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <label for="sizeSelect" class="form-label">Size</label>
+                            <select class="form-select" id="sizeSelect">
+                                <option selected>Select Size</option>
+                                <option value="xs">XS</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="colorSelect" class="form-label">Color</label>
+                            <select class="form-select" id="colorSelect">
+                                <option selected>Ivory White</option>
+                                <option value="black">Midnight Black</option>
+                                <option value="blue">Ocean Blue</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-add-to-cart mb-3">ADD TO CART</button>
+                    
+                    <div class="action-icons d-flex justify-content-center gap-4">
+                        <a href="#"><i class="bi bi-heart"></i> Wishlist</a>
+                        <a href="#"><i class="bi bi-share"></i> Share</a>
+                    </div>
+                    
+                    <hr class="my-4">
+
+                    <!-- Collapsible Details -->
+                    <div class="accordion accordion-flush" id="productDetailsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Details
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#productDetailsAccordion">
+                                <div class="accordion-body">
+                                    This flowy maxi dress is the epitome of effortless elegance. Made from 100% GOTS-certified organic cotton, it features a relaxed fit, a V-neckline, and delicate adjustable straps. Perfect for sunny days and warm evenings.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Care Instructions
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#productDetailsAccordion">
+                                <div class="accordion-body">
+                                    Machine wash cold on a gentle cycle. Use mild detergent. Do not bleach. Tumble dry low or hang to dry for best results. Iron on a low setting if needed.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Shipping & Returns
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#productDetailsAccordion">
+                                <div class="accordion-body">
+                                    We offer free standard shipping on all orders over $100. Express shipping is available for a flat rate. Enjoy free returns and exchanges within 30 days of purchase.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Sticky Add to Cart Bar -->
+    <div class="mobile-cart-bar">
+        <button class="btn btn-add-to-cart">ADD TO CART</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0">&copy; 2024 JAYSEMPIRE. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // JS to handle thumbnail image clicks
+        function changeImage(newSrc) {
+            // Change the main image source
+            document.getElementById('mainImage').src = newSrc.replace('200x250', '800x1000');
+            
+            // Update active state on thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail-img');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.src === newSrc) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
