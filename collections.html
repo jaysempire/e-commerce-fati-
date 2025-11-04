@@ -193,37 +193,49 @@
   <!-- Collection Grid -->
   <div class="container pb-5">
     <div class="row g-4">
-      <!-- Product Item -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="product-card position-relative">
-          <img src="assets/img/image1.jpeg" alt="Linen Shirt" class="img-fluid">
-          <div class="product-overlay">
-            <button class="btn btn-dark rounded-pill px-3"><i class="bi bi-eye me-1"></i> View Details</button>
-            <button class="btn btn-outline-dark rounded-pill px-3"><i class="bi bi-bag me-1"></i> Add to Cart</button>
-          </div>
-          <div class="product-info">
-            <h5>Linen Shirt</h5>
-            <p>$89.00</p>
-          </div>
-        </div>
-      </div>
+     <!-- Product Item -->
+     <div class="col-6 col-md-4 col-lg-3">
+      <div class="product-card position-relative">
+          
+          <!-- 1. Wrap the image in an <a> tag -->
+       <a href="details.html">
+            <img src="assets/img/image1.jpeg" alt="Linen Shirt" class="img-fluid">
+          </a>
 
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="product-card position-relative">
-          <img src="assets/img/image2.jpeg" alt="Denim Jacket" class="img-fluid">
-          <div class="product-overlay">
-            <button class="btn btn-dark rounded-pill px-3"><i class="bi bi-eye me-1"></i> View Details</button>
-            <button class="btn btn-outline-dark rounded-pill px-3"><i class="bi bi-bag me-1"></i> Add to Cart</button>
-          </div>
-          <div class="product-info">
-            <h5>Denim Jacket</h5>
-            <p>$120.00</p>
-          </div>
-        </div>
+       <div class="product-overlay">
+            <!-- 2. Changed the 'View Details' button to an <a> tag -->
+        <a href="details.html" class="btn btn-dark rounded-pill px-3"><i class="bi bi-eye me-1"></i> View Details</a>
+        <button class="btn btn-outline-dark rounded-pill px-3"><i class="bi bi-bag me-1"></i> Add to Cart</button>
+       </div>
+       <div class="product-info">
+            <!-- 3. Wrap the title content in an <a> tag -->
+        <h5><a href="details.html" class="product-link">Linen Shirt</a></h5>
+        <p>$89.00</p>
+       </div>
       </div>
+     </div>
 
-      <!-- Add more products -->
-    </div>
+     <div class="col-6 col-md-4 col-lg-3">
+      <div class="product-card position-relative">
+          
+          <!-- 1. Wrap the image in an <a> tag -->
+       <a href="details.html">
+            <img src="assets/img/image2.jpeg" alt="Linen Shirt" class="img-fluid">
+          </a>
+
+       <div class="product-overlay">
+            <!-- 2. Changed the 'View Details' button to an <a> tag -->
+        <a href="details.html" class="btn btn-dark rounded-pill px-3"><i class="bi bi-eye me-1"></i> View Details</a>
+        <button class="btn btn-outline-dark rounded-pill px-3"><i class="bi bi-bag me-1"></i> Add to Cart</button>
+       </div>
+       <div class="product-info">
+            <!-- 3. Wrap the title content in an <a> tag -->
+        <h5><a href="details.html" class="product-link">Linen Shirt</a></h5>
+        <p>$89.00</p>
+       </div>
+      </div>
+     </div>
+    </div>    
   </div>
 
   <!-- Footer -->
